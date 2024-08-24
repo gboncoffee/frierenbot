@@ -42,7 +42,7 @@ func SendDiscordMessage(discord *discordgo.Session, channelID string, content st
 	// Loops sending a maximum of 2000 characters each time.
 	i := 0
 	for (i+1)*MAX_MESSAGE_SIZE_ADJUSTED <= len(content) {
-		_, err = discord.ChannelMessageSend(channelID, "```"+(content[(i*MAX_MESSAGE_SIZE_ADJUSTED):((i+1)*MAX_MESSAGE_SIZE_ADJUSTED)])+"```", func(_ *discordgo.RequestConfig) {})
+		_, err = discord.ChannelMessageSend(channelID, "```"+(content[(i*MAX_MESSAGE_SIZE_ADJUSTED):((i+1)*MAX_MESSAGE_SIZE_ADJUSTED)])+"```")
 		if err != nil {
 			// Implicitly return err.
 			return
